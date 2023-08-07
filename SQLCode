@@ -1,0 +1,41 @@
+Company Representation by State
+
+SELECT state, COUNT(*) AS Company_Count
+FROM [Inc. 5000 Dataset]
+GROUP BY State
+ORDER BY Company_Count DESC;
+
+Average Growth % by Industry
+
+SELECT Industry, ROUND(AVG(growth), 2) AS Average_Growth_Percentage
+FROM [Inc. 5000 Dataset]
+GROUP BY Industry
+ORDER BY Average_Growth_Percentage DESC;
+
+Average Revenue of Companies by Industry
+
+SELECT Industry, ROUND(AVG(revenue), 0) AS Average_Revenue
+FROM [Inc. 5000 Dataset]
+GROUP BY Industry
+ORDER BY Average_Revenue DESC;
+
+
+Total Average Revenue of Inc. 5000 Companies
+
+SELECT ROUND(AVG(revenue), 0) AS Average_Revenue_of_all_Companies
+FROM [Inc. 5000 Dataset]
+
+Total Average Growth Percentage Inc. 5000 Companies
+SELECT ROUND(AVG(growth), 0) AS Total_Average_Growth_Percentage
+FROM [Inc. 5000 Dataset]
+
+Average Time on Inc. 5000 List
+SELECT CEILING(AVG(CAST(yrs_on_list AS FLOAT))) AS Average_Time_on_Inc5000List
+FROM [Inc. 5000 Dataset];
+
+Top 10 Highest Revenue Cities
+
+SELECT TOP 10 city AS Highest_Revenue_Cities, SUM(revenue) AS Total_Revenue
+FROM [Inc. 5000 Dataset]
+GROUP BY city
+ORDER BY total_revenue DESC;
